@@ -36,7 +36,7 @@ function goBtnClicked() {
 function allColors() {
   outputEl.innerHTML = ""
   for(let i = 0; i < colorData.length; i++){
-    outputEl.innerHTML = (colorData[i],i);
+    outputEl.innerHTML = (colorData[i.name, i.family]);
 }
 
   // Display Name and Family of All Colors
