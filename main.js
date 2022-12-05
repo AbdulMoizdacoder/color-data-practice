@@ -75,7 +75,7 @@ function redPinkFamilies() {
   outputEl.innerHTML = '';
   outputEl.innerHTML = "<h3>DISPLAY ALL RED/PINK FAMILY COLORS</h3>"
   for(let i = 0; i < colorData.length; i++){
-   if(colorData[i].family === Red || colorData[i].family === Pink){
+   if(colorData[i].family === "Red" || colorData[i].family === "Pink"){
     // Count Colors in Red/Pink Families
     outputEl.innerHTML += 
     `<h3> 
@@ -91,19 +91,51 @@ function redPinkFamilies() {
   }
  
 }
-
 function familySearch() {
   outputEl.innerHTML = '';
   outputEl.innerHTML = "<h3>FAMILY SEARCH</h3>"
-
-  // Display Name and Family of all Colors that Match a User Provided Family Name. Also Output a Count of Colors Found.
-  outputEl.innerHTML = "<h3>Family Search</h3>";
+  let description = prompt("enter a family name");
+  let count = 0;
+  for(let i = 0; i < colorData.length; i++){
+  if(colorData[i].family === description){
+      // Display Name and Family of all Colors that Match a User Provided Family Name. Also Output a Count of Colors Found.
+  outputEl.innerHTML +=
+  `<h3> 
+    name:${colorData[i].name}
+    family:${colorData[i].family} 
+    hex:${colorData[i].hex}
+    r:${colorData[i].r}
+    g:${colorData[i].g}
+    b:${colorData[i].b}
+    brightness:${colorData[i].brightness}
+  </h3>`
+  count++;
+  };
+  }
+ outputEl.innerHTML+= `<P> Total Colors in Family : ${count}</p>`;
+  
 }
-
 function startLetterSearch() {
   outputEl.innerHTML = '';
   outputEl.innerHTML = "<h3>LETTER SEARCH</h3>"
-
-  // Display Name of all Colors that Match a User Provided Starting Letter. Also Output a Count of Colors Found.
-  outputEl.innerHTML = "<h3>Start Letter Search</h3>";
+  let description = prompt("enter the first letter of a color");
+  let colorCount = 0;
+  for(let i = 0; i < colorData.length; i++){
+  if(colorData[i].name[0] === description){
+      // Display Name and Family of all Colors that Match a User Provided Family Name. Also Output a Count of Colors Found.
+  outputEl.innerHTML +=
+  `<h3> 
+    name:${colorData[i].name}
+    family:${colorData[i].family}
+    hex:${colorData[i].hex}
+    r:${colorData[i].r}
+    g:${colorData[i].g}
+    b:${colorData[i].b}
+    brightness:${colorData[i].brightness}
+  </h3>`;
+   colorCount++;
+  };
+ 
+  }
+  outputEl.innerHTML+= `<p> Total Colors in with starting letter : ${colorCount}</p>`
 }
