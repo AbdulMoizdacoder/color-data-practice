@@ -31,34 +31,79 @@ function goBtnClicked() {
     startLetterSearch();
   }
 }
-
 // MENU FUNCTIONS
 function allColors() {
-  outputEl.innerHTML = ""
+  outputEl.innerHTML = "<h3>DISPLAY ALL COLORS</h3>"
   for(let i = 0; i < colorData.length; i++){
-    outputEl.innerHTML = (colorData[i.name, i.family]);
+// Display Name and Family of All Colors
+  outputEl.innerHTML +=
+`<h3>
+  name:${colorData[i].name}
+  family:${colorData[i].family}
+  hex:${colorData[i].hex}
+  r:${colorData[i].r}
+  g:${colorData[i].g}
+  b:${colorData[i].b}
+  brightness:${colorData[i].brightness}
+</h3>` ;
 }
 
-  // Display Name and Family of All Colors
-  outputEl.innerHTML = "<h3>Display All Colors</h3>";
+ 
 }
 
 function brightColors() {
-  // Display Name and Brightness of All Colors with a Brightness of 200 and Higher
-  outputEl.innerHTML = "<h3>Display Bright Colors</h3>";
-}
+  outputEl.innerHTML = '';
+  outputEl.innerHTML = "<h3>DISPLAY ALL BRIGHT COLORS</h3>"
 
+  for(let i = 0; i < colorData.length; i++){
+    if(colorData[i].brightness >= 200){
+  // Display Name and Brightness of All Colors with a Brightness of 200 and Higher
+  outputEl.innerHTML += 
+`<h3> 
+  name:${colorData[i].name}
+  family:${colorData[i].family}
+  hex:${colorData[i].hex}
+  r:${colorData[i].r}
+  g:${colorData[i].g}
+  b:${colorData[i].b}
+  brightness:${colorData[i].brightness}
+</h3>`;
+  }
+}
+}
 function redPinkFamilies() {
-  // Count Colors in Red/Pink Families
-  outputEl.innerHTML = "<h3>Count Red/Pink Family Colors</h3>";
+  outputEl.innerHTML = '';
+  outputEl.innerHTML = "<h3>DISPLAY ALL RED/PINK FAMILY COLORS</h3>"
+  for(let i = 0; i < colorData.length; i++){
+   if(colorData[i].family === Red || colorData[i].family === Pink){
+    // Count Colors in Red/Pink Families
+    outputEl.innerHTML += 
+    `<h3> 
+      name:${colorData[i].name}
+      family:${colorData[i].family}
+      hex:${colorData[i].hex}
+      r:${colorData[i].r}
+      g:${colorData[i].g}
+      b:${colorData[i].b}
+      brightness:${colorData[i].brightness}
+    </h3>`;
+    }
+  }
+ 
 }
 
 function familySearch() {
+  outputEl.innerHTML = '';
+  outputEl.innerHTML = "<h3>FAMILY SEARCH</h3>"
+
   // Display Name and Family of all Colors that Match a User Provided Family Name. Also Output a Count of Colors Found.
   outputEl.innerHTML = "<h3>Family Search</h3>";
 }
 
 function startLetterSearch() {
+  outputEl.innerHTML = '';
+  outputEl.innerHTML = "<h3>LETTER SEARCH</h3>"
+
   // Display Name of all Colors that Match a User Provided Starting Letter. Also Output a Count of Colors Found.
   outputEl.innerHTML = "<h3>Start Letter Search</h3>";
 }
